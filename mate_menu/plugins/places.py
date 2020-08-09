@@ -29,7 +29,7 @@ from mate_menu.execute import Execute
 from urllib.parse import unquote
 
 # i18n
-gettext.install("mate-menu", "/usr/share/locale")
+gettext.install("mate-menu", "/usr/local/share/locale")
 
 class pluginclass( object ):
 
@@ -40,7 +40,7 @@ class pluginclass( object ):
 
         # Read UI file
         builder = Gtk.Builder()
-        builder.add_from_file( os.path.join( '/', 'usr', 'share', 'mate-menu',  'plugins', 'places.glade' ))
+        builder.add_from_file( os.path.join( '/', 'usr', 'local', 'share', 'mate-menu',  'plugins', 'places.glade' ))
 
         self.placesBtnHolder    = builder.get_object( "places_button_holder" )
         self.editableBtnHolder  = builder.get_object( "editable_button_holder" )

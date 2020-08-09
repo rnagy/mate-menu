@@ -40,7 +40,7 @@ class pluginclass( object ):
         self.toggleButton = toggleButton
 
         self.builder = Gtk.Builder()
-        self.builder.add_from_file( os.path.join( '/', 'usr', 'share', 'mate-menu',  'plugins', 'system_management.glade' ))
+        self.builder.add_from_file( os.path.join( '/', 'usr', 'local', 'share', 'mate-menu',  'plugins', 'system_management.glade' ))
 
         self.systemBtnHolder    = self.builder.get_object( "system_button_holder" )
         self.editableBtnHolder  = self.builder.get_object( "editable_button_holder" )

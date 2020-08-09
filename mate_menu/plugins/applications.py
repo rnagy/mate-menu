@@ -36,7 +36,7 @@ from mate_menu.easygsettings import EasyGSettings
 from mate_menu.easyfiles import *
 
 # i18n
-gettext.install("mate-menu", "/usr/share/locale")
+gettext.install("mate-menu", "/usr/local/share/locale")
 
 class PackageDescriptor():
     def __init__(self, name, summary, description):
@@ -64,7 +64,7 @@ def get_system_item_paths():
     item_dirs = []
     if 'XDG_DATA_DIRS' in os.environ:
         item_dirs = os.environ['XDG_DATA_DIRS'].split(":")
-    item_dirs.append(os.path.join('/usr', 'share'))
+    item_dirs.append(os.path.join('/usr', 'local', 'share'))
     return item_dirs
 
 def rel_path(target, base=os.curdir):
@@ -205,7 +205,7 @@ class pluginclass( object ):
 
         self.builder = Gtk.Builder()
         # The Glade file for the plugin
-        self.builder.add_from_file ( os.path.join( '/', 'usr', 'share', 'mate-menu',  'plugins', 'applications.glade' ))
+        self.builder.add_from_file ( os.path.join( '/', 'usr', 'local', 'share', 'mate-menu',  'plugins', 'applications.glade' ))
 
         # Read GLADE file
         self.searchEntry =self.builder.get_object( "searchEntry" )
@@ -612,7 +612,7 @@ class pluginclass( object ):
 
         text = "<b>%s</b>" % text
         focused = already_focused
-        prefix = "/usr/share/mate-menu/icons/search_engines/%s"
+        prefix = "/usr/local/share/mate-menu/icons/search_engines/%s"
 
         if self.enableddg:
             suggestionButton = SuggestionButton("list-add", self.iconSize, "")
@@ -920,7 +920,7 @@ class pluginclass( object ):
 
     def searchPopup( self, widget=None, event=None ):
         menu = Gtk.Menu()
-        prefix = "/usr/share/mate-menu/icons/search_engines/%s"
+        prefix = "/usr/local/share/mate-menu/icons/search_engines/%s"
 
         menuItem = self.createImageMenuItem(_("Search DuckDuckGo"), prefix % "ddg.png")
         menuItem.connect("activate", self.search_ddg)
@@ -1056,7 +1056,7 @@ class pluginclass( object ):
         self.mateMenuWin.hide()
         Gdk.flush()
 
-        editProcess = subprocess.Popen(["/usr/bin/mate-desktop-item-edit", filePath])
+        editProcess = subprocess.Popen(["/usr/local/bin/mate-desktop-item-edit", filePath])
         subprocess.Popen.communicate(editProcess)
 
         if newFileFlag:
@@ -1179,13 +1179,13 @@ class pluginclass( object ):
 
             #For Special locations
             if location == "x-nautilus-desktop:///computer":
-                location = "/usr/share/applications/nautilus-computer.desktop"
+                location = "/usr/local/share/applications/nautilus-computer.desktop"
             elif location == "x-nautilus-desktop:///home":
-                location =  "/usr/share/applications/nautilus-home.desktop"
+                location =  "/usr/local/share/applications/nautilus-home.desktop"
             elif location == "x-nautilus-desktop:///network":
-                location = "/usr/share/applications/network-scheme.desktop"
+                location = "/usr/local/share/applications/network-scheme.desktop"
             elif location.startswith( "x-nautilus-desktop:///" ):
-                location = "/usr/share/applications/nautilus-computer.desktop"
+                location = "/usr/local/share/applications/nautilus-computer.desktop"
 
             if location.startswith( "file://" ):
                 location = location[7:]
@@ -1216,7 +1216,7 @@ class pluginclass( object ):
             self.checkMateMenuFolder()
             if not os.path.isfile(self.favoritesPath):
                 # XXX: should the hardcoded path be removed?
-                shutil.copyfile("/usr/share/mate-menu/applications.list", self.favoritesPath)
+                shutil.copyfile("/usr/local/share/mate-menu/applications.list", self.favoritesPath)
 
             applicationsFile = open(self.favoritesPath, "r")
             applicationsList = applicationsFile.readlines()

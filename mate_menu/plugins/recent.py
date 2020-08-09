@@ -39,7 +39,7 @@ class pluginclass:
 
         self.builder = Gtk.Builder()
         #The Glade file for the plugin
-        self.builder.add_from_file (os.path.join( '/', 'usr', 'share', 'mate-menu',  'plugins', 'recent.glade' ))
+        self.builder.add_from_file (os.path.join( '/', 'usr', 'local', 'share', 'mate-menu',  'plugins', 'recent.glade' ))
 
         #Set 'window' property for the plugin (Must be the root widget)
         self.window = self.builder.get_object( "window1" )

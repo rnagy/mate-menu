@@ -48,7 +48,7 @@ class IconManager(GObject.GObject):
             return theme
 
         # This takes to much time and there are only a very few applications that use icons from different themes
-        #self.themes = map(  createTheme, [ d for d in os.listdir( "/usr/share/icons" ) if os.path.isdir( os.path.join( "/usr/share/icons", d ) ) ] )
+        #self.themes = map(  createTheme, [ d for d in os.listdir( "/usr/local/share/icons" ) if os.path.isdir( os.path.join( "/usr/local/share/icons", d ) ) ] )
 
         self.defaultTheme = Gtk.IconTheme.get_default()
 

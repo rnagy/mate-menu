@@ -41,7 +41,7 @@ class mateMenuConfig( object ):
 
     def __init__( self ):
 
-        self.data_path =  os.path.join('/', 'usr', 'share', 'mate-menu' )
+        self.data_path =  os.path.join('/', 'usr', 'local', 'share', 'mate-menu' )
 
         # Load glade file and extract widgets
         self.builder = Gtk.Builder()
