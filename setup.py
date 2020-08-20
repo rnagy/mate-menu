@@ -52,7 +52,7 @@ def datafilelist(installbase, sourcebase):
     return datafileList
 
 data_files = [
-    ("share/man/man1".format(prefix=sys.prefix), glob("data/*.1")),
+    ("man/man1".format(prefix=sys.prefix), glob("data/*.1")),
     ("share/glib-2.0/schemas".format(prefix=sys.prefix),
         [
             "data/org.mate.mate-menu.gschema.xml"
